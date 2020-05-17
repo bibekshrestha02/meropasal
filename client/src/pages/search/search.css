@@ -1,0 +1,8 @@
+.search {
+  height: 65vh;
+}
+.CenterCards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

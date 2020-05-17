@@ -1,0 +1,298 @@
+{
+  "Electronics": {
+    "Mobiles": [
+      {
+        "id": "1",
+        "Title": "Samsung J2",
+        "Price": "9,999",
+        "Rating": 3,
+        "itemsLeft": 4,
+        "photo": "Electronics/mobiles/samsungJ2.png",
+        "features": {
+          "Operating System": "Android 6",
+          "Camera": "8 Mp front Camera",
+          "Battery": "2600 Mah Battery",
+          "RAM": "2GB",
+          "Display": "5.0 inches (12.7 cm) display",
+          "Fingerprint sensor": "No"
+        }
+      },
+      {
+        "id": "2",
+        "Title": "Samsung J5",
+        "Price": "15,000",
+        "Rating": 4.5,
+        "itemsLeft": 7,
+        "photo": "Electronics/mobiles/samsungJ5.png",
+        "features": {
+          "Operating System": "Android 6",
+          "Camera": "8 Mp front Camera",
+          "Battery": "2600 Mah Battery",
+          "RAM": "4GB",
+          "Display": "5.0 inches (12.7 cm) display",
+          "Fingerprint sensor": "yes"
+        }
+      },
+      {
+        "id": "3",
+        "Title": "Google Pixel 2",
+        "Price": "60,000",
+        "Rating": 4.6,
+        "itemsLeft": 4,
+        "photo": "Electronics/mobiles/googlePixel2.png",
+        "features": {
+          "Operating System": "Android 7",
+          "Camera": "18 Mp front Camera",
+          "Battery": "2600 Mah Battery",
+          "RAM": "8GB",
+          "Fingerprint sensor": "yes"
+        }
+      },
+      {
+        "id": "4",
+        "Title": "SamsungS10",
+        "Price": "1,00,000",
+        "Rating": 4.8,
+        "itemsLeft": 4,
+        "photo": "Electronics/mobiles/samsungS10.png",
+        "features": {
+          "Operating System": "Android 7",
+          "Camera": "58 Mp front Camera",
+          "Battery": "2600 Mah Battery",
+          "RAM": "8GB",
+          "Fingerprint sensor": "yes"
+        }
+      },
+      {
+        "id": "5",
+        "Title": "Samsung J1",
+        "Price": "8,000",
+        "Rating": 3.1,
+        "itemsLeft": 4,
+        "photo": "Electronics/mobiles/samsungJ1.png",
+        "features": {
+          "Operating System": "Android 4",
+          "Camera": "8 Mp front Camera",
+          "Battery": "2600 Mah Battery",
+          "RAM": "2GB",
+          "Fingerprint sensor": "No"
+        }
+      },
+      {
+        "id": "6",
+        "Title": "i-phone X",
+        "Price": "99999",
+        "Rating": 4.9,
+        "itemsLeft": 4,
+        "photo": "Electronics/mobiles/IphoneX.png",
+        "features": {
+          "Operating System": "IOS",
+          "Camera": "88 Mp front Camera",
+          "Battery": "5000 Mah Battery",
+          "RAM": "8GB",
+          "Fingerprint sensor": "yes"
+        }
+      }
+    ],
+    "Laptops": [
+      {
+        "id": "1",
+        "Title": "Dell ",
+        "Price": "50000",
+        "Rating": 3,
+        "itemsLeft": 4,
+        "photo": "Electronics/laptops/dell.png",
+        "features": {
+          "Display": "15.0 inches display",
+          "Processor": "Intel Core I5",
+          "Memory": "1TB SATA/4GB DDR$",
+          "Wireless Connectivity": "Wifi, Bluetooth 4.0",
+          "Pointing Device": "Touchpad",
+          "Graphics": "Intel Iris Plus Graphics"
+        }
+      },
+      {
+        "id": "2",
+        "Title": "Samsung ",
+        "Price": "60000",
+        "Rating": 4.5,
+        "itemsLeft": 4,
+        "photo": "Electronics/laptops/samsung.png",
+        "features": {
+          "Display": "15.0 inches display",
+          "Processor": "Intel Core I5",
+          "Memory": "1TB SATA/4GB DDR$",
+          "Wireless Connectivity": "Wifi, Bluetooth 4.0",
+          "Pointing Device": "Touchpad",
+          "Graphics": "Intel Iris Plus Graphics"
+        }
+      },
+      {
+        "id": "3",
+        "Title": "Asus",
+        "Price": "67000",
+        "Rating": 4.3,
+        "itemsLeft": 4,
+        "photo": "Electronics/laptops/asus.png",
+        "features": {
+          "Display": "15.0 inches display",
+          "Processor": "Intel Core I5",
+          "Memory": "1TB SATA/4GB DDR$",
+          "Wireless Connectivity": "Wifi, Bluetooth 4.0",
+          "Pointing Device": "Touchpad",
+          "Graphics": "Intel Iris Plus Graphics"
+        }
+      },
+      {
+        "id": "4",
+        "Title": "Mac air Book",
+        "Price": "1,50,000",
+        "Rating": 4.9,
+        "itemsLeft": 4,
+        "photo": "Electronics/laptops/macBookAir.png",
+        "features": {
+          "Display": "15.0 inches display",
+          "Processor": "Intel Core I5",
+          "Memory": "1TB SATA/4GB DDR$",
+          "Wireless Connectivity": "Wifi, Bluetooth 4.0",
+          "Pointing Device": "Touchpad",
+          "Graphics": "Intel Iris Plus Graphics"
+        }
+      },
+      {
+        "id": "5",
+        "Title": "Hp",
+        "Price": "56,000",
+        "Rating": 5,
+        "itemsLeft": 4,
+        "photo": "Electronics/laptops/hp.png",
+        "features": {
+          "Display": "15.0 inches display",
+          "Processor": "Intel Core I5",
+          "Memory": "1TB SATA/4GB DDR$",
+          "Wireless Connectivity": "Wifi, Bluetooth 4.0",
+          "Pointing Device": "Touchpad",
+          "Graphics": "Intel Iris Plus Graphics"
+        }
+      },
+      {
+        "id": "6",
+        "Title": "Toshiba",
+        "Price": "70,000",
+        "Rating": 4.9,
+        "itemsLeft": 4,
+        "photo": "Electronics/laptops/toshiba.png",
+        "features": {
+          "Display": "15.0 inches display",
+          "Processor": "Intel Core I5",
+          "Memory": "1TB SATA/4GB DDR$",
+          "Wireless Connectivity": "Wifi, Bluetooth 4.0",
+          "Pointing Device": "Touchpad",
+          "Graphics": "Intel Iris Plus Graphics"
+        }
+      }
+    ],
+    "Monitors": [
+      {
+        "id": "1",
+        "Title": "Samsung",
+        "Price": "20,000",
+        "Rating": 3,
+        "itemsLeft": 4.8,
+        "photo": "Electronics/monitor/samsung.png",
+        "features": {
+          "Display": "15.0 inches display",
+          "Blacklight Technology": "LED",
+          "Display Manager Compatibility": "Yes",
+          "Remote Asset Management": "Yes",
+          "Connectivity": "VGA",
+          "Voltage Required": "100 to 240 VAC / 50 or 60 Hz ± 3Hz / 1.5 A (typical)"
+        }
+      },
+      {
+        "id": "2",
+        "Title": "Acer",
+        "Price": "50,000",
+        "Rating": 4.5,
+        "itemsLeft": 4.9,
+        "photo": "Electronics/monitor/Acer.png",
+        "features": {
+          "Display": "15.0 inches display",
+          "Blacklight Technology": "LED",
+          "Display Manager Compatibility": "Yes",
+          "Remote Asset Management": "Yes",
+          "Connectivity": "VGA",
+          "Voltage Required": "100 to 240 VAC / 50 or 60 Hz ± 3Hz / 1.5 A (typical)"
+        }
+      },
+      {
+        "id": "3",
+        "Title": "Aco 1556Es",
+        "Price": "12000",
+        "Rating": 2.1,
+        "itemsLeft ": 4,
+        "photo": "Electronics/monitor/aco.png",
+        "features": {
+          "Display": "15.0 inches display",
+          "Blacklight Technology": "LED",
+          "Display Manager Compatibility": "Yes",
+          "Remote Asset Management": "Yes",
+          "Connectivity": "VGA",
+          "Voltage Required": "100 to 240 VAC / 50 or 60 Hz ± 3Hz / 1.5 A (typical)"
+        }
+      },
+      {
+        "id": "4",
+        "Title": "GetBook ES10",
+        "Price": "5,666",
+        "Rating": 3.8,
+        "itemsLeft": 2,
+        "photo": "Electronics/monitor/getbook.png",
+        "features": {
+          "Display": "15.0 inches display",
+          "Blacklight Technology": "LED",
+          "Display Manager Compatibility": "Yes",
+          "Remote Asset Management": "Yes",
+          "Connectivity": "VGA",
+          "Voltage Required": "100 to 240 VAC / 50 or 60 Hz ± 3Hz / 1.5 A (typical)"
+        }
+      },
+      {
+        "id": "5",
+        "Title": "Hanash 9Rc3",
+        "Price": "50,000",
+        "Rating": 5,
+        "itemsLeft": 4,
+        "photo": "Electronics/monitor/hanash.png",
+        "features": {
+          "Display": "15.0 inches display",
+          "Blacklight Technology": "LED",
+          "Display Manager Compatibility": "Yes",
+          "Remote Asset Management": "Yes",
+          "Connectivity": "VGA",
+          "Voltage Required": "100 to 240 VAC / 50 or 60 Hz ± 3Hz / 1.5 A (typical)"
+        }
+      },
+      {
+        "id": "6",
+        "Title": "iMac",
+        "Price": "150,000",
+        "Rating": 4.9,
+        "itemsLeft": 4,
+        "photo": "Electronics/monitor/imac.png",
+        "features": {
+          "Display": "5k display",
+          "Display Manager Compatibility": "Yes",
+          "Remote Asset Management": "Yes",
+          "Connectivity": "VGA",
+          "Voltage Required": "100 to 240 VAC / 50 or 60 Hz ± 3Hz / 1.5 A (typical)"
+        }
+      }
+    ]
+  },
+  "Sports": {},
+  "Healths": {},
+  "Homes": {},
+  "MenFashions": {},
+  "BabyToy": {}
+}

@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1",
+    "Categories": "Monitor",
+    "Title": "Samsung",
+    "Price": 20000,
+    "Rating": 3,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/monitor/samsung.png"
+  },
+  {
+    "id": "2",
+    "Categories": "Monitor",
+    "Title": "Acer",
+    "Price": 50000,
+    "Rating": 4.5,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/monitor/Acer.png"
+  },
+  {
+    "id": "3",
+    "Categories": "Monitor",
+    "Title": "Aco 1556Es",
+    "Price": 12000,
+    "Rating": 2.1,
+    "ItemsLeft ": 4,
+    "Photo": "/images/Electronics/monitor/aco.png"
+  },
+  {
+    "id": "4",
+    "Categories": "Monitor",
+    "Title": "GetBook ES10",
+    "Price": 5666,
+    "Rating": 3.8,
+    "ItemsLeft": 2,
+    "Photo": "/images/Electronics/monitor/getbook.png"
+  },
+  {
+    "id": "5",
+    "Categories": "Monitor",
+    "Title": "Hanash 9Rc3",
+    "Price": 50000,
+    "Rating": 5,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/monitor/hanash.png"
+  },
+  {
+    "id": "6",
+    "Categories": "Monitor",
+    "Title": "iMac",
+    "Price": 150000,
+    "Rating": 4.9,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/monitor/imac.png"
+  }
+]

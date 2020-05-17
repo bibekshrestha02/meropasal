@@ -1,0 +1,89 @@
+@import "./../../../css/color";
+.carousel {
+  background-color: #fcdedc;
+  padding: 20px;
+  padding-left: 80px;
+  @media screen and (max-width: 940px) {
+    padding: 15px;
+    padding-left: 20px;
+  }
+  @media screen and (max-width: 574px) {
+    padding: 10px;
+    height: 20vh;
+    padding-left: 10px;
+  }
+}
+.carousel2 {
+  background-color: rgb(216, 214, 214);
+  padding: 20px;
+  padding-left: 80px;
+  @media screen and (max-width: 940px) {
+    padding: 15px;
+    padding-left: 20px;
+  }
+  @media screen and (max-width: 574px) {
+    padding: 10px;
+    height: 20vh;
+    padding-left: 10px;
+  }
+}
+
+.onDay {
+  font-size: 30px;
+  color: $Text;
+  font-weight: lighter;
+  font-family: cursive;
+  @media screen and (max-width: 940px) {
+    font-size: 26px;
+  }
+  @media screen and (max-width: 574px) {
+    font-size: 16px;
+    padding-top: 20px;
+  }
+}
+.slogan {
+  font-weight: 400;
+  color: $Un-Known;
+  @media screen and (max-width: 940px) {
+    font-size: 16px;
+  }
+  @media screen and (max-width: 574px) {
+    font-weight: 200;
+    font-size: 8px;
+  }
+  @media screen and (max-width: 400px) {
+    font-size: 8px;
+    color: black;
+  }
+}
+.arrivals {
+  font-size: 60px;
+  color: $Red;
+  font-weight: bold;
+  letter-spacing: 0px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  @media screen and (max-width: 940px) {
+    font-size: 46px;
+  }
+  @media screen and (max-width: 574px) {
+    font-size: 20px;
+    letter-spacing: 0px;
+  }
+  @media screen and (max-width: 400px) {
+    font-size: 15px;
+    padding-top: 20px;
+  }
+}
+.photo {
+  width: 400px;
+  @media screen and (max-width: 940px) {
+    width: 230px;
+  }
+  @media screen and (max-width: 574px) {
+    width: 150px;
+  }
+  @media screen and (max-width: 400px) {
+    padding-top: 20px;
+    width: 140px;
+  }
+}

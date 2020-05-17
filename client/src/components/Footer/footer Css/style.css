@@ -1,0 +1,21 @@
+.footer {
+  background-color: #2c3335;
+  height: 100px;
+}
+
+.footer .image {
+  width: 200px;
+}
+
+@media screen and (max-width: 435px) {
+  .footer .image {
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 435px) {
+  .footer span {
+    display: none;
+  }
+}
+/*# sourceMappingURL=style.css.map */

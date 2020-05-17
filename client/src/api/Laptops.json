@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1",
+    "Categories": "Laptop",
+    "Title": "Dell ",
+    "Price": 50000,
+    "Rating": 3,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/laptops/dell.png"
+  },
+  {
+    "id": "2",
+    "Categories": "Laptop",
+    "Title": "Samsung ",
+    "Price": 60000,
+    "Rating": 4.5,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/laptops/samsung.png"
+  },
+  {
+    "id": "3",
+    "Categories": "Laptop",
+    "Title": "Asus",
+    "Price": 67000,
+    "Rating": 4.3,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/laptops/asus.png"
+  },
+  {
+    "id": "4",
+    "Categories": "Laptop",
+    "Title": "Mac air Book",
+    "Price": 150000,
+    "Rating": 4.9,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/laptops/macBookAir.png"
+  },
+  {
+    "id": "5",
+    "Categories": "Laptop",
+    "Title": "Hp",
+    "Price": 56000,
+    "Rating": 5,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/laptops/hp.png"
+  },
+  {
+    "id": "6",
+    "Categories": "Laptop",
+    "Title": "Toshiba",
+    "Price": 70000,
+    "Rating": 4.9,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/laptops/toshiba.png"
+  }
+]

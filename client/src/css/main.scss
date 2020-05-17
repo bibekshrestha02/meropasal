@@ -1,0 +1,11 @@
+@import "./color";
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 0px;
+  background-color: white;
+  font-family: "Nunito Sans", sans-serif;
+}

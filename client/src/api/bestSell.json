@@ -1,0 +1,40 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "Categories": "Laptop",
+      "Title": "Dell ",
+      "Price": "50,000",
+      "Rating": 3,
+      "ItemsLeft": 4,
+      "Photo": "/images/Electronics/laptops/dell.png"
+    },
+    {
+      "id": "3",
+      "Categories": "Laptop",
+      "Title": "Asus",
+      "Price": "67,000",
+      "Rating": 4.3,
+      "ItemsLeft": 4,
+      "Photo": "/images/Electronics/laptops/asus.png"
+    },
+    {
+      "id": "2",
+      "Categories": "Mobile",
+      "Title": "Samsung J5",
+      "Price": "15,000",
+      "Rating": 4.5,
+      "ItemsLeft": 7,
+      "Photo": "/images/Electronics/mobiles/samsungJ5.png"
+    },
+    {
+      "id": "3",
+      "Categories": "Mobile",
+      "Title": "Google Pixel 2",
+      "Price": "60,000",
+      "Rating": 4.6,
+      "ItemsLeft": 4,
+      "Photo": "/images/Electronics/mobiles/googlePixel2.png"
+    }
+  ]
+}

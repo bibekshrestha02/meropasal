@@ -1,0 +1,63 @@
+@import "./../../css/color";
+.Title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+  color: $Text;
+  margin-top: 15px;
+  letter-spacing: 2px;
+  hr {
+    border: 1px solid $Border;
+    margin: 0px;
+    @media screen and (max-width: 574px) {
+      border: 0.5px solid $Border;
+    }
+  }
+  @media screen and (max-width: 574px) {
+    font-size: 20px;
+    font-weight: 400;
+  }
+}
+.price {
+  font-size: 16px;
+  font-weight: 700;
+  color: $Text;
+  .priceTag {
+    color: $Red;
+  }
+}
+.price-Loading {
+  width: 50%;
+  height: 20px;
+  background-color: $Sec-Bg;
+}
+.subtitle {
+  font-size: 30px;
+  font-weight: 700;
+  color: $Text;
+  text-align: left;
+  hr {
+    margin: 1px;
+    border: 0.5px solid $Border;
+  }
+}
+.qualityManager {
+  .btn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  .number {
+    font-size: 20px;
+    margin: 10px;
+  }
+}
+.loginTitle {
+  color: $Un-Known;
+  font-size: 20px;
+  font-weight: 600;
+  float: center;
+  hr {
+    margin: 2px;
+  }
+}

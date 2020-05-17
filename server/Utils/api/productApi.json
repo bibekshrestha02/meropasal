@@ -1,0 +1,146 @@
+[
+  {
+    "Categories": "Mobile",
+    "Title": "Samsung J2",
+    "Price": 9999,
+    "Rating": 3,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/mobiles/samsungJ2.png"
+  },
+  {
+    "Title": "Samsung J3",
+    "Categories": "Mobile",
+    "Price": 15000,
+    "Rating": 4.5,
+    "ItemsLeft": 7,
+    "Photo": "/images/Electronics/mobiles/samsungJ5.png"
+  },
+  {
+    "Categories": "Mobile",
+    "Title": "Google Pixel 2",
+    "Price": 60000,
+    "Rating": 4.6,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/mobiles/googlePixel2.png"
+  },
+  {
+    "Categories": "Mobile",
+    "Title": "Samsung S10",
+    "Price": 100000,
+    "Rating": 4.8,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/mobiles/samsungS10.png"
+  },
+  {
+    "Categories": "Mobile",
+    "Title": "One Plus 5",
+    "Price": 50000,
+    "Rating": 4.8,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/mobiles/onePlus5.png"
+  },
+  {
+    "Categories": "Mobile",
+    "Title": "i-phone X",
+    "Price": 99999,
+    "Rating": 4.9,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/mobiles/IphoneX.png"
+  },
+  {
+    "Categories": "Laptop",
+    "Title": "Dell ",
+    "Price": 50000,
+    "Rating": 3,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/laptops/dell.png"
+  },
+  {
+    "Categories": "Laptop",
+    "Title": "Samsung ",
+    "Price": 60000,
+    "Rating": 4.5,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/laptops/samsung.png"
+  },
+  {
+    "Categories": "Laptop",
+    "Title": "Asus",
+    "Price": 67000,
+    "Rating": 4.3,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/laptops/asus.png"
+  },
+  {
+    "Categories": "Laptop",
+    "Title": "Mac air Book",
+    "Price": 150000,
+    "Rating": 4.9,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/laptops/macBookAir.png"
+  },
+  {
+    "Categories": "Laptop",
+    "Title": "Hp",
+    "Price": 56000,
+    "Rating": 5,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/laptops/hp.png"
+  },
+  {
+    "Categories": "Laptop",
+    "Title": "Toshiba",
+    "Price": 70000,
+    "Rating": 4.9,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/laptops/toshiba.png"
+  },
+  {
+    "Categories": "Monitor",
+    "Title": "Samsung",
+    "Price": 20000,
+    "Rating": 3,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/monitor/samsung.png"
+  },
+  {
+    "Categories": "Monitor",
+    "Title": "Acer",
+    "Price": 50000,
+    "Rating": 4.5,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/monitor/Acer.png"
+  },
+  {
+    "Categories": "Monitor",
+    "Title": "Aco 1556Es",
+    "Price": 12000,
+    "Rating": 2.1,
+    "ItemsLeft ": 4,
+    "Photo": "/images/Electronics/monitor/aco.png"
+  },
+  {
+    "Categories": "Monitor",
+    "Title": "GetBook ES10",
+    "Price": 5666,
+    "Rating": 3.8,
+    "ItemsLeft": 2,
+    "Photo": "/images/Electronics/monitor/getbook.png"
+  },
+  {
+    "Categories": "Monitor",
+    "Title": "Hanash 9Rc3",
+    "Price": 50000,
+    "Rating": 5,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/monitor/hanash.png"
+  },
+  {
+    "Categories": "Monitor",
+    "Title": "iMac",
+    "Price": 150000,
+    "Rating": 4.9,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/monitor/imac.png"
+  }
+]

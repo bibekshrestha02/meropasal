@@ -1,0 +1,56 @@
+[
+  {
+    "id": "1",
+    "Categories": "Mobile",
+    "Title": "Samsung J2",
+    "Price": 9999,
+    "Rating": 3,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/mobiles/samsungJ2.png"
+  },
+  {
+    "id": "2",
+    "Title": "Samsung J5",
+    "Categories": "Mobile",
+    "Price": 15000,
+    "Rating": 4.5,
+    "ItemsLeft": 7,
+    "Photo": "/images/Electronics/mobiles/samsungJ5.png"
+  },
+  {
+    "id": "3",
+    "Categories": "Mobile",
+    "Title": "Google Pixel 2",
+    "Price": 60000,
+    "Rating": 4.6,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/mobiles/googlePixel2.png"
+  },
+  {
+    "id": "4",
+    "Categories": "Mobile",
+    "Title": "SamsungS10",
+    "Price": 100000,
+    "Rating": 4.8,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/mobiles/samsungS10.png"
+  },
+  {
+    "id": "5",
+    "Categories": "Mobile",
+    "Title": "One Plus 5",
+    "Price": 50000,
+    "Rating": 4.8,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/mobiles/onePlus5.png"
+  },
+  {
+    "id": "6",
+    "Categories": "Mobile",
+    "Title": "i-phone X",
+    "Price": 99999,
+    "Rating": 4.9,
+    "ItemsLeft": 4,
+    "Photo": "/images/Electronics/mobiles/IphoneX.png"
+  }
+]

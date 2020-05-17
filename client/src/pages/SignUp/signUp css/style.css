@@ -1,0 +1,44 @@
+.SignUp {
+  width: 60%;
+  height: auto;
+}
+
+@media screen and (max-width: 570px) {
+  .SignUp {
+    width: 100%;
+  }
+}
+
+.SignUp form span {
+  color: #2c3335;
+  font-size: 18px;
+}
+
+.SignUp form span .star {
+  color: #e71c23;
+}
+
+.SignUp form input {
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  border: 1px solid #a4b0bd;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.SignUp form select {
+  height: 45px;
+  width: 50%;
+  border: 1px solid #a4b0bd;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.SignUp form .Or {
+  font-weight: 500;
+  font-size: 18px;
+}
+/*# sourceMappingURL=style.css.map */

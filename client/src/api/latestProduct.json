@@ -1,0 +1,40 @@
+{
+  "data": [
+    {
+      "id": "1",
+      "Categories": "Monitor",
+      "Title": "Samsung",
+      "Price": "20,000",
+      "Rating": 3,
+      "ItemsLeft": 4.8,
+      "Photo": "/images/Electronics/monitor/samsung.png"
+    },
+    {
+      "id": "2",
+      "Categories": "Monitor",
+      "Title": "Acer",
+      "Price": "50,000",
+      "Rating": 4.5,
+      "ItemsLeft": 4.9,
+      "Photo": "/images/Electronics/monitor/Acer.png"
+    },
+    {
+      "id": "5",
+      "Categories": "Mobile",
+      "Title": "One Plus 5",
+      "Price": "50,000",
+      "Rating": 4.8,
+      "ItemsLeft": 4,
+      "Photo": "/images/Electronics/mobiles/onePlus5.png"
+    },
+    {
+      "id": "4",
+      "Categories": "Laptop",
+      "Title": "Mac air Book",
+      "Price": "1,50,000",
+      "Rating": 4.9,
+      "ItemsLeft": 4,
+      "Photo": "/images/Electronics/laptops/macBookAir.png"
+    }
+  ]
+}
