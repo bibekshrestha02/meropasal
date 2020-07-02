@@ -6,22 +6,25 @@ class Auth {
   }
   login = () => {
     localStorage.setItem("token", this.token);
-    return this.history.push("/");
-    // return this.history.push("/callback");
+    this.history.push("/");
+    return window.location.reload();
+  };
+  updatePassword = () => {
+    return localStorage.setItem("token", this.token);
   };
   isAuthenticate = () => {
     const token = localStorage.getItem("token");
-    // const data = jwt.decode(token);
-    // console.log(token);
-    return token;
+    if (token) {
+      const data = jwt.decode(token);
+
+      const { exp } = data;
+
+      return Date.now() > exp;
+    } else return false;
   };
   isAdmin = () => {
     const token = localStorage.getItem("token");
-    if (!token) {
-      return false;
-    }
     const data = jwt.decode(token);
-    // console.log(data);
     if (data.role === "admin") {
       return true;
     } else {
@@ -29,16 +32,13 @@ class Auth {
     }
   };
   handleAuth = () => {
-    // localStorage.setItem("Login", true);
-    // localStorage.setItem("role", this.role);
     localStorage.setItem("token", this.token);
 
     return this.history.push("/");
   };
   LogOut = () => {
-    // localStorage.removeItem("Login");
     localStorage.removeItem("token");
-    return this.history.replace("/");
+    return this.history.push("/");
   };
   message = () => {
     return true;

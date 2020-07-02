@@ -1,3 +1,14 @@
 ul {
   cursor: pointer;
 }
+li {
+  text-align: left;
+  padding: 5px;
+  padding-left: 25px;
+}
+a {
+  color: black;
+}
+a:active {
+  color: red;
+}

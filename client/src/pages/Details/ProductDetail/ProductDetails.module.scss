@@ -1,0 +1,36 @@
+@import "./../../../css/color";
+
+.Details {
+  .image {
+    background-color: $Sec-Bg;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 100%;
+    .photo {
+      width: 350px;
+      @media screen and (max-width: "400px") {
+        width: 200px;
+      }
+    }
+  }
+  .quality {
+    .Tags {
+      font-size: 16px;
+      font-weight: 600;
+      color: $TextI;
+      letter-spacing: 0.2px;
+    }
+    .quality {
+      font-size: 16px;
+      font-weight: 400;
+    }
+  }
+  .manager {
+    color: $TextI;
+
+    font-size: 16px;
+    font-weight: 600;
+  }
+}

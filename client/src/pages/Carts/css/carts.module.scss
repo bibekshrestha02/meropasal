@@ -1,0 +1,52 @@
+@import "./../../../css/color";
+.table {
+  th {
+    font-size: 16px;
+    @media screen and(max-width:"400px") {
+      font-size: 10px;
+    }
+  }
+  span {
+    font-size: 14px;
+    @media screen and(max-width:"400px") {
+      font-size: 10px;
+    }
+  }
+  .clseBtn {
+    color: $Red;
+    cursor: pointer;
+  }
+}
+.subTable {
+  width: 20%;
+  text-align: right;
+  float: right;
+  td {
+    font-size: 16px;
+  }
+  @media screen and(max-width:"400px") {
+    width: 100%;
+    float: center;
+    td {
+      font-size: 10px;
+    }
+  }
+}
+.button {
+  width: 100%;
+  float: left;
+  button {
+    border-radius: 50px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    @media screen and(max-width:"400px") {
+      border-radius: 50px;
+      margin-right: 5px;
+      margin-bottom: 5px;
+      font-size: 8px;
+    }
+  }
+  @media screen and(max-width:"400px") {
+    width: 100%;
+  }
+}

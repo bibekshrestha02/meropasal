@@ -1,10 +1,5 @@
 import React from "react";
-import "./css/style.css";
+import style from "./css/style.module.scss";
 export default function LogInTitle(props) {
-  return (
-    <div className='loginTitle text-center'>
-      <span>{props.Title}</span>
-      <hr />
-    </div>
-  );
+  return <div className={`${style.loginTitle} text-center`}>{props.Title}</div>;
 }

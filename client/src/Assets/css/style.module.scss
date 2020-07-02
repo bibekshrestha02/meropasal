@@ -1,0 +1,58 @@
+@import "./../../css/color";
+.Title {
+  text-align: center;
+  font-size: 25px;
+  font-weight: 700;
+  color: $Text;
+  letter-spacing: 1px;
+  hr {
+    margin: 0;
+    border: 2px solid $Border;
+    @media screen and (max-width: 574px) {
+      border: 0.5px solid $Border;
+    }
+  }
+  @media screen and (max-width: 574px) {
+    font-size: 20px;
+    font-weight: 700;
+  }
+}
+.price {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: $Red;
+}
+
+.subtitle {
+  h1 {
+    color: $Text;
+    font-size: 25px;
+    font-weight: 700;
+  }
+
+  hr {
+    margin: 1px;
+    border: 0.5px solid $Border;
+  }
+  @media screen and (max-width: "400px") {
+    padding-top: 10px;
+  }
+}
+.qualityManager {
+  .btn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+  .number {
+    font-size: 20px;
+    margin: 10px;
+  }
+}
+.loginTitle {
+  color: $Red;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}

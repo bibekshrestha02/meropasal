@@ -20,7 +20,6 @@ exports.getAllMobiles = catchAsync(async (req, res, next) => {
 // geting the Laptops
 exports.getAllLaptops = catchAsync(async (req, res, next) => {
   const data = await ProductModel.find({ Categories: "Laptop" });
-  // console.log(data);
   res.status(200).json({
     status: "success",
     data,
@@ -94,8 +93,10 @@ exports.Categories = catchAsync(async (req, res, next) => {
 });
 // for home
 exports.Home = catchAsync(async (req, res, next) => {
-  const bestSells = await ProductModel.find({ Rating: { $gte: 4 } }).limit(4);
-  const latestProdut = await ProductModel.find({}).sort({ date: 1 }).limit(4);
+  const bestSells = await ProductModel.find({ Rating: { $gte: 3 } }).limit(4);
+  const latestProdut = await ProductModel.find({ Rating: { $lte: 3 } })
+    .sort({ date: 1 })
+    .limit(4);
   res.json({
     status: "Success",
     bestSells,
@@ -105,12 +106,19 @@ exports.Home = catchAsync(async (req, res, next) => {
 // searching Items
 exports.searchItems = catchAsync(async (req, res, next) => {
   const seachTitle = req.params.search;
-  const SearchItems = await ProductModel.find({ Title: seachTitle });
+  const SearchItems = await ProductModel.find({
+    $text: { $search: `${seachTitle}s`, $caseSensitive: false },
+  });
   res.status(200).json({
     status: "Success",
     SearchItems,
   });
 });
+
+exports.uploadPhoto = async (req, res) => {
+  const data = req.files[0].filename;
+  res.status(200).json({ fileName: data });
+};
 
 //middleware to update the quantity in stock
 exports.updateStock = (req, res, next) => {

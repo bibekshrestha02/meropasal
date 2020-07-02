@@ -1,16 +1,16 @@
 import React from "react";
 import Nav from "../../components/Nav/Nav";
-import Footer from "./../../components/Footer/Footer";
-import "./style.css";
+import style from "./style.module.scss";
 import { CartStore } from "../../Store/CartStore";
+import Footer from "./../../components/Footer/Footer";
 export default function layout(props) {
   return (
-    <div>
+    <div className={style.layOut}>
       <CartStore>
         <Nav />
-        <div className='body'>{props.children}</div>
-        <Footer />
+        <div className={style.body}>{props.children}</div>
       </CartStore>
+      <Footer />
     </div>
   );
 }

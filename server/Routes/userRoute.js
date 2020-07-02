@@ -1,12 +1,26 @@
 const Express = require("express");
-const { signUp, login, signout } = require("./../Controller/AuthController");
-const { varification } = require("./../Controller/AuthController");
-const { getUserInformation } = require("./../Controller/userController");
-const Route = Express.Router();
+const {
+  signUp,
+  login,
+  signout,
+  updatePassword,
+} = require("./../Controller/AuthController");
+const { varification, checkRole } = require("./../Controller/AuthController");
+const {
+  getUserInformation,
+  updateUserInfo,
+  getUserOrder,
+} = require("./../Controller/userController");
+const Router = Express.Router();
 
-Route.post("/signup", signUp);
-Route.post("/login", login);
-Route.post("/logout", signout);
-Route.get("/data", varification, getUserInformation);
+Router.post("/signup", signUp);
+Router.post("/login", login);
+Router.post("/logout", signout);
 
-module.exports = Route;
+Router.route("/")
+  .get(varification, getUserInformation)
+  .patch(varification, updatePassword)
+  .put(varification, updateUserInfo);
+Router.route("/order").get(varification, getUserOrder);
+
+module.exports = Router;

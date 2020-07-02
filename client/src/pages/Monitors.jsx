@@ -8,15 +8,10 @@ export default function Camera() {
   const [Monitor, setMonitor] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    Axios.get("/api/monitors")
-      .then((e) => {
-        setMonitor(e.data.data);
-        setLoading(false);
-        // console.log(loading);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    Axios.get("/api/monitors").then((e) => {
+      setMonitor(e.data.data);
+      setLoading(false);
+    });
   }, []);
   let loader = <Spinner />;
   if (!loading) {

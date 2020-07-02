@@ -1,60 +1,64 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import LogInTitle from "./../../Assets/LogInTitle";
 import Validator from "validator";
-import "./signUp css/style.css";
+import style from "./signUp css/style.module.scss";
 import Auth from "./../../classes/Auth";
 import Axios from "./../../Axios";
 export default function Signup(props) {
   const [email, setEmail] = useState("");
   const [Password, setPassword] = useState("");
   const [conformPassword, setconformPassword] = useState("");
-  const [gender, setgender] = useState("fMale");
+  const [gender, setgender] = useState("Male");
   const [fname, setfname] = useState("");
   const [lname, setlname] = useState("");
-  const [err, setErr] = useState(false);
+  const [isErr, setErr] = useState(false);
   const [errMessage, setErrMessage] = useState("");
+  const emailRef = useRef();
+  const nameRef = useRef();
+  const passwordRef = useRef();
+
   useEffect(() => {
     window.scrollTo(0, 0);
   });
-  const emailHandler = (e) => {
-    setEmail(e.target.value);
-  };
-  const fnameHandler = (e) => {
-    setfname(e.target.value);
-  };
-  const lnameHandler = (e) => {
-    setlname(e.target.value);
-  };
-  const genderHandler = (e) => {
-    setgender(e.target.value);
-  };
-  const passwordHandler = (e) => {
-    setPassword(e.target.value);
-  };
-  const conformPasswordHandler = (e) => {
-    setconformPassword(e.target.value);
+  const formHandler = (e) => {
+    const value = e.target.value;
+    const name = e.target.name;
+    if (name === "fname") {
+      return setfname(value);
+    } else if (name === "lname") {
+      return setlname(value);
+    } else if (name === "email") {
+      return setEmail(value);
+    } else if (name === "password") {
+      return setPassword(value);
+    } else if (name === "conform-password") {
+      return setconformPassword(value);
+    } else if (name === "gender") {
+      return setgender(value);
+    }
   };
   const signUpfn = () => {
-    if (
-      !email ||
-      !Password ||
-      !conformPassword ||
-      !gender ||
-      !fname ||
-      !lname
-    ) {
+    if (!fname || !lname) {
+      nameRef.current.focus();
       setErr(true);
-      return setErrMessage("* Please Fill the form");
+      return setErrMessage(" Please Fill the form");
+    } else if (!email) {
+      emailRef.current.focus();
+      setErr(true);
+      return setErrMessage(" Please Fill the form");
+    } else if (!Password || !conformPassword) {
+      passwordRef.current.focus();
+      setErr(true);
+      return setErrMessage(" Please Fill the form");
     } else if (!Validator.isEmail(email)) {
+      emailRef.current.focus();
       setErr(true);
-      return setErrMessage("*Invalid Email");
+      return setErrMessage("Invalid Email");
     } else if (Password !== conformPassword) {
       setErr(true);
-      return setErrMessage("*Password doesn't matched");
-    } else if (Password.length < 8) {
-      setErr(true);
-      return setErrMessage("*Password should be at least 8 characters");
+      passwordRef.current.focus();
+      return setErrMessage("Password doesn't matched");
     }
     const data = {
       email: email,
@@ -64,113 +68,123 @@ export default function Signup(props) {
       conformPassword: conformPassword,
       gender: gender,
     };
-    Axios.post("/user/signup", data)
-      .then((res) => {
-        console.log(res);
-        if (!res.data.status) {
-          setErr(true);
-          return setErrMessage("*Email already Exists");
-        }
-        const token = res.data.token;
-        const obj = new Auth(props.history, token);
-        obj.login();
-        setErr(false);
-        setErrMessage("");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    Axios.post("/user/signup", data).then((res) => {
+      if (!res.data.status) {
+        setErr(true);
+        emailRef.current.focus();
+        return setErrMessage("Email already Exists");
+      }
+      setErr(false);
+      setErrMessage("");
+      const token = res.data.token;
+      const obj = new Auth(props.history, token);
+      obj.login();
+      setErr(false);
+      setErrMessage("");
+    });
   };
   return (
-    <div>
-      <div className='SignUp border mt-2 mx-auto'>
-        <form className='m-3'>
-          {err ? (
-            <div className='text-center'>
-              <span style={{ color: "Red" }}>{errMessage}</span>
-            </div>
-          ) : null}
-          <LogInTitle Title='Create an Account' />
-          <span>
-            Fname<span className='star'>*</span>
+    <div className={style.loginform}>
+      <form>
+        <LogInTitle Title='SignUp' />
+        {isErr ? (
+          <span
+            style={{
+              color: "black",
+              textAlign: "center",
+              fontWeight: "bold",
+              fontSize: "12px",
+            }}>
+            * {errMessage}
           </span>
-          <br />
+        ) : null}
+        <div className='form-group '>
           <input
+            onChange={formHandler}
+            value={fname}
             type='text'
             name='fname'
-            onChange={fnameHandler}
-            value={fname}
+            ref={nameRef}
+            className='form-control'
+            placeholder='First Name'
+            required='required'
           />
-          <br />
-          <span>
-            Lname<span className='star'>*</span>
-          </span>
-          <br />
+        </div>
+        <div className='form-group '>
           <input
-            type='text'
-            name='Lname'
-            onChange={lnameHandler}
+            onChange={formHandler}
             value={lname}
+            type='text'
+            name='lname'
+            className='form-control'
+            placeholder='Last Name'
+            required='required'
           />
-          <br />
-          <span>
-            Email<span className='star'>*</span>
-          </span>
-          <br />
+        </div>
+        <div className='form-group '>
           <input
-            type='email'
-            onChange={emailHandler}
-            name='Email'
+            onChange={formHandler}
             value={email}
+            type='text'
+            name='email'
+            ref={emailRef}
+            className='form-control'
+            placeholder='Email'
+            required='required'
           />
-          <br />
-          <span>
-            Password<span className='star'>*</span>
-          </span>
-          <br />
+        </div>
+        <div className='form-group'>
           <input
-            type='password'
-            onChange={passwordHandler}
-            name='password'
+            onChange={formHandler}
             value={Password}
-          />
-          <br />
-          <span>
-            Confrom Password<span className='star'>*</span>
-          </span>
-          <br />
-          <input
             type='password'
-            onChange={conformPasswordHandler}
+            ref={passwordRef}
             name='password'
-            value={conformPassword}
+            className='form-control'
+            placeholder='Password'
+            required='required'
           />
-          <br />
-          <span>
-            Gender<span className='star'>*</span>
-          </span>
-          <br />
-          <select name='Gender' onChange={genderHandler} value={gender}>
+        </div>
+        <div className='form-group'>
+          <input
+            onChange={formHandler}
+            value={conformPassword}
+            type='password'
+            ref={passwordRef}
+            name='conform-password'
+            className='form-control'
+            placeholder='Conform Password'
+            required='required'
+          />
+        </div>
+        <div className='form-group'>
+          <select
+            className='form-control'
+            name='gender'
+            onChange={formHandler}
+            value={gender}>
             <option value='Male'>Male</option>
             <option value='fMale'>Fe-Male</option>
-            {/* <option value='Other'>Other</option> */}
           </select>
-          <input
+        </div>
+
+        <div className='form-group'>
+          <button
             type='button'
-            className='btn btn-danger btn-block'
-            onClick={signUpfn}
-            value='SIGNUP'
-          />
-          <div className='Or text-center'>OR</div>
-          <Link className='link' to='Login'>
-            <input
-              type='button'
-              className='btn btn-warning btn-block'
-              value='LOGIN'
-            />
-          </Link>
-        </form>
-      </div>
+            className='btn btn-danger btn-block '
+            onClick={signUpfn}>
+            SignUp
+          </button>
+        </div>
+        <div className='text-center'>
+          <span>
+            Have an account?
+            <Link to='/login'>
+              <span className={style.registar}> Login</span>
+            </Link>
+          </span>
+        </div>
+      </form>
     </div>
   );
 }

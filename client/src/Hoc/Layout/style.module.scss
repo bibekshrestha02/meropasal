@@ -1,0 +1,23 @@
+.body {
+  margin-top: 190px;
+  z-index: 100;
+}
+
+.layOut {
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  background-color: white;
+  font-family: "Nunito Sans", sans-serif;
+}
+@media screen and(max-width:400px) {
+  .body {
+    margin-top: 220px;
+  }
+  .layOut {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}

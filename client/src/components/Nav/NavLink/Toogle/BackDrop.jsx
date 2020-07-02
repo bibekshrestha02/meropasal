@@ -1,9 +1,9 @@
 import React from "react";
-import "./../../navCss/style.css";
+import style from "./../../navCss/style.module.scss";
 export default function BackDrop(props) {
-  let classes = "close";
+  let classes = style.close;
   if (props.Sidenav) {
-    classes = "BackDrop";
+    classes = style.BackDrop;
   }
 
   return <div className={classes} onClick={props.Close}></div>;

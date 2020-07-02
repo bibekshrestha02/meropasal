@@ -1,0 +1,42 @@
+@import "./../../../css/color";
+.link {
+  padding: 3px;
+  border: 1px solid $Border;
+  @media screen and (max-width: "400px") {
+    border: none;
+    padding: none;
+  }
+  span {
+    display: block;
+    padding: 3px 3px;
+  }
+  a {
+    text-decoration: none;
+    color: $TextI;
+    font-weight: 500;
+    letter-spacing: 1px;
+    // padding-left: 10px;
+    &:hover {
+      text-decoration: none;
+      color: $Red;
+      font-weight: 600;
+    }
+  }
+  .activeClassName {
+    color: $Red;
+    padding-left: 15px;
+
+    font-weight: 600;
+    border-left: 2px solid $Red;
+  }
+  .linksItemsDis {
+    @media screen and (max-width: "400px") {
+      display: none;
+    }
+  }
+  .linksItemsAct {
+    @media screen and (max-width: "400px") {
+      display: block;
+    }
+  }
+}

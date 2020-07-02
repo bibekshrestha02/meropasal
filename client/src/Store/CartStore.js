@@ -5,15 +5,17 @@ export const Carts = React.createContext();
 
 export const CartStore = (props) => {
   const [cartsNmber, setCartNumber] = useState(0);
-  useEffect(() => {
+  const isCartsItems = () => {
     if (new Auth().isAuthenticate()) {
       Axios.get("cartApi/carts").then((res) => {
-        if (res.data.status === "fail") {
-          return setCartNumber(0);
-        }
-        setCartNumber(res.data.Carts.length);
+        setCartNumber(res.data.CartsNumber);
       });
+    } else {
+      setCartNumber(0);
     }
+  };
+  useEffect(() => {
+    isCartsItems();
   });
   return (
     <Carts.Provider value={[cartsNmber, setCartNumber]}>

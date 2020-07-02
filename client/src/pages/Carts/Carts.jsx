@@ -1,95 +1,83 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import CartTable from "./CartsTable/cartsTable";
-import CartsButtom from "./CartsButtoms/CartsButtoms";
-import CheckOutModel from "./CheckOutModel/modal";
-import FullScrenModel from "./CheckOutModel/fullScreenModel";
+import Title from "./../../pages/CustomerAccount/Assets/Title";
 import Axios from "./../../Axios";
 import Spinner from "./../../components/Spinner/spinner";
-import "./css/carts.css";
+import Button from "./CartsButtoms/CartsButtoms";
+import Linkdir from "./../../components/LinksDir/LinkDir";
+import { Carts } from "./../../Store/CartStore";
+
 export default function Cart() {
-  const [isItms, setIsItmes] = useState(true);
+  const [isItems, setIsItems] = useState(false);
   const [CartItems, setItems] = useState("");
   const [subTotal, setSubTotal] = useState("");
-  const [ModalHandler, setModalHandler] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const setCartNumber = useContext(Carts);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   });
   useEffect(() => {
     Axios.get("cartApi/carts").then((res) => {
-      if (res.data.status === "fail") {
-        setLoading(true);
-        return setItems(true);
+      if (res.data.CartsNumber === 0) {
+        setLoading(false);
+        return setIsItems(false);
       }
+      setCartNumber[1](res.data.CartsNumber);
       setSubTotal(res.data.subTotal);
       setItems(res.data.Carts);
-      setLoading(true);
-      setIsItmes(false);
+      setLoading(false);
+      setIsItems(true);
     });
-  }, []);
+  }, [setCartNumber]);
 
-  const closeHandler = () => {
-    setModalHandler((e) => !e);
-  };
-  const clearCarts = () => {
-    Axios.delete(`/cartApi/carts`)
-      .then((res) => {
-        setLoading(true);
-        setIsItmes(true);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  // TODO:deleting single items from carts
+  //  single items from carts
   const itemRemove = (title) => {
-    Axios.delete(`cartApi/carts/${title}`)
-      .then((res) => {
-        console.log(res);
-        if (res.data.status === "fail") {
-          setLoading(true);
-          setIsItmes(true);
-          return setItems(false);
-        }
-        setSubTotal(res.data.subTotal);
-        setItems(res.data.Carts);
-        setLoading(true);
-        setIsItmes(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-  let details;
-  if (!loading) {
-    details = <Spinner />;
-  }
+    Axios.delete(`cartApi/carts/${title}`).then((res) => {
+      if (res.data.CartsNumber === 0) {
+        setCartNumber[1](res.data.CartsNumber);
 
-  if (loading && !isItms) {
-    details = <CartTable itemRemove={itemRemove} CartItems={CartItems} />;
+        setLoading(false);
+        return setIsItems(false);
+      }
+      setCartNumber[1](res.data.CartsNumber);
+
+      setSubTotal(res.data.subTotal);
+      setItems(res.data.Carts);
+      setLoading(false);
+      setIsItems(true);
+    });
+  };
+
+  let details;
+  if (loading) {
+    details = <Spinner />;
+  } else if (isItems) {
+    details = (
+      <div>
+        <CartTable
+          itemRemove={itemRemove}
+          subTotal={subTotal}
+          CartItems={CartItems}
+        />
+        <Button />
+      </div>
+    );
   }
+  const emptyCartsMessage = (
+    <div style={{ height: "50vh" }}>
+      <div className='alert alert-warning mt-2' role='alert'>
+        <span style={{ fontSize: "20px" }}> &#9888;</span> You have placed no
+        orders.
+      </div>
+    </div>
+  );
+
   return (
     <>
-      <div className='cartTitle'>
-        <h3>
-          <b>Shopping Carts</b>
-        </h3>
-      </div>
-      <div className='Cart container-fluid '>
-        <div>{isItms ? <span>No Items in Carts</span> : details}</div>
-      </div>
-      <CartsButtom
-        cartStatus={isItms}
-        closeHandler={closeHandler}
-        clearCarts={clearCarts}
-      />
-      <CheckOutModel
-        subTotal={subTotal}
-        product={CartItems}
-        ModalHandler={ModalHandler}
-        closeHandler={closeHandler}
-      />
-      <FullScrenModel ModalHandler={ModalHandler} closeHandler={closeHandler} />
+      <Linkdir firstLink='Carts' firstLinkTo='/Cart' isActive />
+      <Title title='Shopping Carts' />
+      {!isItems ? emptyCartsMessage : details}
     </>
   );
 }

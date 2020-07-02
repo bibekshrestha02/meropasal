@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
 const bcrypt = require("bcryptjs");
+const crypto = require("crypto");
 const userSchema = new mongoose.Schema({
   fname: {
     type: String,
@@ -33,7 +34,6 @@ const userSchema = new mongoose.Schema({
   },
   conformPassword: {
     type: String,
-    required: [true, "please Enter Conform Password"],
     validate: {
       validator: function (v) {
         return this.password === v;
@@ -41,14 +41,30 @@ const userSchema = new mongoose.Schema({
       message: "Password Doesnt matched",
     },
   },
-  purchases: {
-    type: Array,
-    default: [],
-  },
   carts: {
     type: Array,
     default: [],
   },
+  orderProduct: {
+    type: Object,
+    default: [],
+  },
+  address: [
+    {
+      StreetAddress: {
+        type: Object,
+      },
+      Country: {
+        type: String,
+      },
+      District: {
+        type: String,
+      },
+      Zipcode: {
+        type: Number,
+      },
+    },
+  ],
 });
 userSchema.pre("save", async function () {
   this.password = await bcrypt.hash(this.password, 8);
@@ -57,6 +73,7 @@ userSchema.pre("save", async function () {
 userSchema.methods.CheckPassword = function (userPassword, correctPassword) {
   return bcrypt.compare(userPassword, correctPassword);
 };
+
 const User = mongoose.model("users", userSchema);
 
 module.exports = User;

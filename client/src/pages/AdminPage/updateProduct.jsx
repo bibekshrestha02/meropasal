@@ -4,7 +4,8 @@ import SubTitle from "./../../Assets/Title";
 import axios from "./../../Axios";
 
 function UpdateProduct(props) {
-  const [imagePath, setImagePath] = useState();
+  const [imagePath, setImagePath] = useState("");
+  const [fileData, setFileData] = useState("");
   const [Title, setTitle] = useState("");
   const [Price, setPrice] = useState("");
   const [Rating, setRating] = useState("");
@@ -26,16 +27,31 @@ function UpdateProduct(props) {
     setCategories(e.target.value);
   };
   const onUploadFile = (e) => {
-    setImagePath(e.target.files[0]);
-    console.log(e.target.files);
+    const fileData = e.target.files[0];
+    setFileData(fileData);
   };
   const onUpload = (e) => {
-    // const formData = new FormData();
+    e.preventDefault();
+    if (!fileData) {
+      return alert("Please select Image");
+    }
+    const formData = new FormData();
+    formData.append("myImage", fileData);
+    const config = {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    };
+
+    axios.post("/api/Product/upload", formData, config).then((res) => {
+      const fileName = res.data.fileName;
+      setImagePath(`/images/${fileName}`);
+    });
   };
   const { id } = props.match.params;
 
   useEffect(() => {
-    axios.get(`api//categories/${id}`).then((res) => {
+    axios.get(`api/Products/${id}`).then((res) => {
       const { data } = res.data;
       setCategories(data.Categories);
       setTitle(data.Title);
@@ -59,27 +75,20 @@ function UpdateProduct(props) {
       Rating: Rating * 1,
       Photo: imagePath,
     };
-    axios
-      .patch(`/api/Products/${id}`, data)
-      .then((res) => {
-        // console.log(res.data);
-        if (res.data.status === "success") {
-          alert("Product Updated");
-          props.history.push("/");
-        } else alert("Title already Exist");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    axios.patch(`/api/Products/${id}`, data).then((res) => {
+      if (res.data.status === "success") {
+        alert("Product Updated");
+      } else alert("Title already Exist");
+    });
   };
   return (
     <>
       <SubTitle Title='Update Itmes' />
-      <div className='row mt-3 pt-3'>
+      <div className='row mt-3 pt-3 container mx-auto'>
         <div className='col-lg-4'>
           <div className='text-center'>
             <img
-              src={imagePath}
+              src={!imagePath ? "/images/uploadImg.png" : imagePath}
               className='rounded'
               alt='...'
               width='200px'
@@ -147,9 +156,11 @@ function UpdateProduct(props) {
             </div>
           </div>
           <br />
-          <button className='btn btn-block btn-danger' onClick={onSubmit}>
-            Update Items
-          </button>
+          <div className='text-right'>
+            <button className='btn btn-danger' onClick={onSubmit}>
+              Update Items
+            </button>
+          </div>
         </div>
       </div>
     </>

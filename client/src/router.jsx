@@ -12,34 +12,31 @@ import Carts from "./pages/Carts/Carts";
 import Details from "./pages/Details/Details";
 import SearchPage from "./pages/search/search";
 import Auth from "./classes/Auth";
-import CustomerAccount from "./pages/CustomerAccount/account";
-import DeleteProduct from "./pages/AdminPage/deleteProduct";
+import Dashboard from "./pages/CustomerAccount/DashBoard";
 import AddProduct from "./pages/AdminPage/addProduct";
 import UpdateProduct from "./pages/AdminPage/updateProduct";
-
+import CheckOut from "./pages/checkoutPage/CheckOut";
 const Router = (props) => (
   <>
     <Switch>
       <Route exact path='/' component={Home} />
-      <Route exact path='/Smartphones' component={Smartphones} />
-      <Route exact path='/Monitor' component={Monitor} />
-      <Route path='/Computer' component={Computers} />
-      <Route exact path='/Login' component={Login} />
-      <Route exact path='/SignUp' component={SignUp} />
-      <Route exact path='/search/:Title' component={SearchPage} />
+      <Route path='/Mobile' component={Smartphones} />
+      <Route path='/Monitor' component={Monitor} />
+      <Route path='/Laptop' component={Computers} />
+      <Route path='/Login' component={Login} />
+      <Route path='/SignUp' component={SignUp} />
+      <Route path='/search' component={SearchPage} />
 
       <Route path='/callback' component={CallBack} />
-      <PrivateRoute
-        exact
-        path='/customer/account'
-        component={CustomerAccount}
-      />
-      <Route path='/Product/:id' component={Details} />
+      <PrivateRoute path='/customer/account' component={Dashboard} />
+      <Route path='/Product' component={Details} />
 
-      <PrivateRoute exact path='/Cart' component={Carts} />
+      <PrivateRoute path='/Cart' component={Carts} />
+      <PrivateRoute path='/checkout' component={CheckOut} />
+
       <Route
         exact
-        path='/productAdd'
+        path='/AddProduct'
         render={() =>
           new Auth().isAuthenticate() && new Auth().isAdmin() ? (
             <AddProduct />
@@ -59,17 +56,8 @@ const Router = (props) => (
           )
         }
       />
-      <Route
-        exact
-        path='/productDelete'
-        render={() =>
-          new Auth().isAuthenticate() && new Auth().isAdmin() ? (
-            <DeleteProduct />
-          ) : (
-            <Redirect to='/' />
-          )
-        }
-      />
+
+      <Route path='*' component={Home} />
     </Switch>
   </>
 );

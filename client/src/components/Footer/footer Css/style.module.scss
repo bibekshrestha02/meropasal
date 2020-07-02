@@ -1,0 +1,41 @@
+@import "./../../../css/color";
+.footer {
+  width: 100%;
+  vertical-align: middle;
+  border-style: none;
+  i {
+    text-align: center;
+  }
+  img {
+    width: 80px;
+    text-align: center;
+    @media screen and (max-width: "400px") {
+      width: 50px;
+    }
+  }
+  h4 {
+    @media screen and (max-width: "400px") {
+      font-size: 16px;
+    }
+  }
+  .serviceWidget {
+    text-align: center;
+  }
+}
+.footerDown {
+  border-top: 3px solid $Border;
+  width: 100%;
+  background-color: white;
+  margin: auto;
+  padding: 10px;
+  span {
+    @media screen and (max-width: "400px") {
+      display: block;
+    }
+  }
+  p {
+    @media screen and (max-width: "400px") {
+      font-size: 14px;
+    }
+  }
+}

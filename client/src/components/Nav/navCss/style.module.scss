@@ -1,0 +1,240 @@
+@import "./../../../css/color";
+
+.Nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: auto;
+  z-index: 1;
+  background-color: white;
+  @media screen and(max-width:400px) {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.navTop {
+  a {
+    text-decoration: none;
+    color: $Red;
+    &:hover {
+      text-decoration: none;
+      color: $Red;
+    }
+  }
+}
+.hr {
+  border-top: 1px solid $Border;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+.text {
+  color: $Text;
+  font-size: 20px;
+  font-weight: lighter;
+  @media screen and (max-width: 445px) {
+    font-size: 10px;
+  }
+}
+
+.Carts {
+  border: 2px solid $Border;
+  font-size: 26px;
+  color: $Red;
+  padding: 2px;
+  @media screen and (max-width: 445px) {
+    font-size: 22px;
+  }
+  .icon {
+    color: $Red;
+    font-size: 29px;
+    padding-left: 5px;
+    padding-right: 9px;
+  }
+  .border {
+    border: 2px solid $Border;
+  }
+  .CartText {
+    font-size: 18px;
+    padding-left: 5px;
+    padding-right: 9px;
+    color: $Text;
+    font-weight: 700;
+    b {
+      color: $Red;
+    }
+    &:hover {
+      color: $Red;
+    }
+  }
+}
+
+#Search {
+  padding: 10px;
+  font-size: 17px;
+  letter-spacing: 1px;
+  color: $TextI;
+  font-weight: 600;
+  border: 1px solid $Border;
+  float: left;
+  width: 80%;
+  outline-color: $Red;
+}
+.formsearch {
+  @media screen and (max-width: 575px) {
+    display: none;
+  }
+}
+.button {
+  float: left;
+  width: 20%;
+  height: 47px;
+  padding: 10px;
+  color: $Red;
+  font-size: 20px;
+  background-color: white;
+  border: 1px solid $Border;
+  border-left: none;
+  cursor: pointer;
+  &:hover {
+    color: white;
+    background-color: $Red;
+  }
+}
+.NavBrand {
+  @media screen and (max-width: 760px) {
+    text-align: center;
+  }
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+.NavLinks {
+  border-top: 4px solid $Border;
+  border-bottom: 4px solid $Border;
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  li {
+    float: left;
+  }
+
+  li {
+    display: inline-block;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+    padding: 10px;
+
+    text-decoration: none;
+    a {
+      text-decoration: none;
+      color: $Text;
+      &:hover {
+        text-decoration: none;
+        color: $Red;
+      }
+    }
+  }
+
+  .categories {
+    font-size: 20px;
+    font-weight: bold;
+    padding-right: 10px;
+    padding: 10px;
+    @media screen and (min-width: 575px) {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 555px) {
+    display: none;
+  }
+}
+.Toogle {
+  border-top: 4px solid $Border;
+  border-bottom: 4px solid $Border;
+  height: 50px;
+  padding: 5px;
+  color: $Text;
+  font-size: 20px;
+
+  .Menu {
+    float: left;
+    margin-left: 10px;
+    div {
+      width: 25px;
+      height: 2px;
+      background-color: black;
+      margin: 6px 0;
+    }
+  }
+
+  .Categories {
+    font-weight: bolder;
+    letter-spacing: 0.08em;
+    float: right;
+    // display: none;
+  }
+  @media screen and (min-width: 555px) {
+    display: none;
+  }
+}
+.BackDrop {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  cursor: pointer;
+}
+.sidenav {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  left: 0;
+  background-color: $Sec-Bg;
+  overflow-x: hidden;
+  padding-top: 40px;
+  transition: 5s;
+  .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 30px;
+    margin-left: 50px;
+  }
+  a {
+    padding: 0px 8px 0px 20px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: $Text;
+    display: block;
+    transition: 0.3s;
+    &:hover {
+      color: $Red;
+      text-decoration: none;
+    }
+  }
+}
+.close {
+  display: none;
+}

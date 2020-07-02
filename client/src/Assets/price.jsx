@@ -1,11 +1,9 @@
 import React from "react";
-
+import style from "./css/style.module.scss";
 export default function Price(props) {
   let price = (
     <div>
-      <span className='price'>
-        Rs.<span className='priceTag'>{props.Price}</span>
-      </span>
+      <span className={style.price}>Rs. {props.Price}</span>
     </div>
   );
 

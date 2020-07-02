@@ -1,27 +1,43 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import LogInTitle from "../../Assets/LogInTitle";
 import { Link, withRouter } from "react-router-dom";
-import "./Login css/style.css";
+import style from "./Login css/style.module.scss";
 import Auth from "../../classes/Auth";
 import Axios from "./../../Axios";
-// import { Redirect } from "react-router-dom";
+import Validator from "validator";
 function Login(props) {
-  const [err, setErr] = useState(false);
+  const [isErr, setErr] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errMessage, setErrMessage] = useState("");
-  const emailHandler = (e) => {
-    setEmail(e.target.value);
-  };
-  const passwordHandler = (e) => {
-    setPassword(e.target.value);
+  const emailRef = useRef();
+  const passwordRef = useRef();
+
+  const formHandler = (e) => {
+    const value = e.target.value;
+    if (e.target.name === "email") {
+      return setEmail(value);
+    } else if (e.target.name === "password") {
+      return setPassword(value);
+    }
   };
   useEffect(() => {
     window.scrollTo(0, 0);
   });
-  const login = () => {
-    if (!email || !password) {
-      setErrMessage("*Enter Email or Password");
+  const getLogin = () => {
+    if (!email) {
+      emailRef.current.focus();
+      setErrMessage("Enter Email or Password");
+      return setErr(true);
+    }
+    if (!password) {
+      passwordRef.current.focus();
+      setErrMessage("Enter Email or Password");
+      return setErr(true);
+    }
+    if (!Validator.isEmail(email)) {
+      emailRef.current.focus();
+      setErrMessage("Invalid Email");
       return setErr(true);
     }
     const data = {
@@ -30,59 +46,74 @@ function Login(props) {
     };
     Axios.post("/user/login", data)
       .then((res) => {
-        // console.log(res);
         const token = res.data.token;
-        // console.log(token);
         const obj = new Auth(props.history, token);
         obj.login();
         setErr(false);
       })
       .catch((err) => {
-        setErrMessage("*Invalid Email or Password");
+        passwordRef.current.focus();
+        setErrMessage("Invalid Email or Password");
         setErr(true);
       });
   };
 
   return (
-    <div>
-      <div className='Login border mt-3 mb-3 mx-auto '>
-        <LogInTitle Title='Login or Create an Account' />
-        <form className='pl-4 pr-4 mt-3'>
-          {err ? (
-            <div className='text-center'>
-              <span style={{ color: "Red" }}>{errMessage}</span>
-            </div>
+    <div className='pt-5'>
+      <div className={style.loginform}>
+        <form>
+          <LogInTitle Title='Login' />
+          {isErr ? (
+            <span
+              style={{
+                color: "black",
+                textAlign: "center",
+                fontWeight: "bold",
+                fontSize: "12px",
+              }}>
+              * {errMessage}
+            </span>
           ) : null}
-
-          <span>
-            Email Address<span className='star'>*</span>
-            <br />
-          </span>
-          <input type='email' required value={email} onChange={emailHandler} />
-          <br />
-          <span>
-            Password<span className='star'>*</span>
-          </span>
-          <br />
-          <input type='password' value={password} onChange={passwordHandler} />
-          <br />
-
-          <div className=' mt-2 text-left'>
-            <span className='starTitle text-primary'>
-              Forget your Password?
+          <div className='form-group '>
+            <input
+              onChange={formHandler}
+              value={email}
+              ref={emailRef}
+              type='text'
+              name='email'
+              className={`form-control`}
+              placeholder='Email'
+              required='required'
+            />
+          </div>
+          <div className='form-group'>
+            <input
+              ref={passwordRef}
+              onChange={formHandler}
+              value={password}
+              type='password'
+              name='password'
+              className='form-control'
+              placeholder='Password'
+              required='required'
+            />
+          </div>
+          <div className='form-group'>
+            <button
+              type='button'
+              className='btn btn-danger btn-block '
+              onClick={getLogin}>
+              Log in
+            </button>
+          </div>
+          <div className='text-center'>
+            <span>
+              Don't have an account?
+              <Link to='/signup'>
+                <span className={style.registar}> Register Here</span>
+              </Link>
             </span>
           </div>
-          <span className='btn btn-block btn-danger ' onClick={login}>
-            LOGIN
-          </span>
-          <div className='text-center Or text-center '>
-            <b>OR</b>
-          </div>
-          <Link className='link' to='/SignUp'>
-            <button className='btn btn-warning btn-block'>
-              Create an Account
-            </button>
-          </Link>
         </form>
       </div>
     </div>

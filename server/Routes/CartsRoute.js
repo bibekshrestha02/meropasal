@@ -1,6 +1,6 @@
 const express = require("express");
 
-const { varification, checkRole } = require("./../Controller/AuthController");
+const { varification } = require("./../Controller/AuthController");
 const {
   createCarts,
   getCarts,
@@ -11,12 +11,11 @@ const {
 const Router = express.Router();
 // inserting carts, getting & deleting carts
 Router.route("/carts")
-  .post(varification, createCarts)
+  .post(varification, createCarts, getCarts)
   .get(varification, getCarts)
   .delete(varification, deleteCarts);
 
 //   deleting single items from carts
-// TODO: Delting single items is not working
 Router.route("/carts/:title")
   .delete(varification, deleteSingleCarts, getCarts)
   .patch(varification, updateCartsItems, getCarts);

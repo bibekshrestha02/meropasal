@@ -1,9 +1,9 @@
 import React from "react";
-import "./css/style.css";
+import style from "./css/style.module.scss";
 export default function Subtitle(props) {
   return (
-    <div className='subtitle'>
-      <span>{props.Subtitle}</span>
+    <div className={`${style.subtitle}`}>
+      <h1>{props.Subtitle}</h1>
       <hr />
     </div>
   );

@@ -9,18 +9,13 @@ export default function Home() {
   const [latestProduct, setlatesProduct] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    Axios.get("/api/")
-      .then((e) => {
-        const bestSells = e.data.bestSells;
-        const latestProduct = e.data.latestProdut;
-        setBestSell(bestSells);
-        setlatesProduct(latestProduct);
-        setLoading(false);
-        // console.log(loading);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    Axios.get("/api/").then((e) => {
+      const bestSells = e.data.bestSells;
+      const latestProduct = e.data.latestProdut;
+      setBestSell(bestSells);
+      setlatesProduct(latestProduct);
+      setLoading(false);
+    });
   }, []);
   let Loader = <Spinner />;
   if (!loading) {

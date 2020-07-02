@@ -56,48 +56,79 @@ exports.login = catchAsync(async (req, res, next) => {
   };
   // 3.if everything ok , send token to client
   const token = tokenFn(userData);
-  // console.log(userData);
 
-  // const token = jwtToken.sign(userData, process.env.JWT_SECRET);
-  // res.cookie("token", token);
   res.status(200).json({
     status: "success",
     token,
   });
 });
+//Update Password
+exports.updatePassword = async (req, res) => {
+  try {
+    const userId = req.user._id;
+    const { currentPassword, newPassword, conformPassword } = req.body;
+    if (!newPassword || !currentPassword || !conformPassword) {
+      throw "Please Enter Password";
+    }
+    const data = await user.findById({ _id: userId }).select("+password");
+    // 1. checking the current password
+    if (!(await data.CheckPassword(currentPassword, data.password))) {
+      throw "Current password is not matched";
+    }
+    // 2. updating the password
+    data.password = newPassword;
+    data.conformPassword = conformPassword;
+    await data.save();
+    const tokenData = {
+      id: data._id,
+      name: data.fname,
+      role: data.role,
+    };
+    // 3.if everything ok , send token to client
+    const token = tokenFn(tokenData);
+
+    res.status(200).json({
+      status: "success",
+      token,
+    });
+  } catch (error) {
+    res.json({ error });
+  }
+};
+
 // for protecting the routes i.e login or not
-exports.varification = catchAsync(async (req, res, next) => {
-  // 1. getting token and check if its there
+exports.varification = async (req, res, next) => {
+  try {
+    // 1. getting token and check if its there
+    let token;
+    if (
+      req.headers.authorization &&
+      req.headers.authorization.startsWith("Bearer")
+    ) {
+      token = req.headers.authorization.split(" ")[1];
+    }
 
-  let token;
-  if (
-    req.headers.authorization &&
-    req.headers.authorization.startsWith("Bearer")
-  ) {
-    token = req.headers.authorization.split(" ")[1];
-  }
-  // console.log(token);
+    if (!token) {
+      throw "You are not logged in! Please log in to get access.";
+    }
 
-  if (!token) {
-    return next(
-      new AppError("You are not logged in! Please log in to get access.", 401)
+    // 2. verfication token
+    const status = await promisify(jwtToken.verify)(
+      token,
+      process.env.JWT_SECRET
     );
-  }
 
-  // 2. verfication token
-  const status = await promisify(jwtToken.verify)(
-    token,
-    process.env.JWT_SECRET
-  );
-
-  // 3. check if user still exists
-  const freshUser = await user.findById(status.id);
-  if (!freshUser) {
-    return next(new appErr("User doesn't exist", 402));
+    // 3. check if user still exists
+    const freshUser = await user.findById(status.id);
+    if (!freshUser) {
+      return next(new appErr("User doesn't exist", 402));
+    }
+    req.user = freshUser;
+    next();
+  } catch (error) {
+    res.json(error);
   }
-  req.user = freshUser;
-  next();
-});
+};
 // for checking the role
 exports.checkRole = (role) => {
   return (req, res, next) => {

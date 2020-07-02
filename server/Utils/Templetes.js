@@ -7,7 +7,9 @@ const ProductModel = require("./../Modal/ProductModel");
 const Productdata = JSON.parse(
   fs.readFileSync("./api/productApi.json", "utf-8")
 );
-Mongoose.connect(process.env.LOCAL_DB, {
+const db = process.env.MONGODB.replace("<password>", process.env.PASSWORD);
+
+Mongoose.connect(db, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
@@ -21,7 +23,7 @@ Mongoose.connect(process.env.LOCAL_DB, {
 const Product = async () => {
   try {
     await ProductModel.create(Productdata);
-    console.log("successfully add Monitors");
+    console.log("successfully add Products");
 
     process.exit();
   } catch (error) {
@@ -30,6 +32,4 @@ const Product = async () => {
   }
 };
 
-if (process.argv[2] === "---product") {
-  Product();
-}
+Product();

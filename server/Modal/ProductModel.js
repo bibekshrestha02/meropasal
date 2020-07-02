@@ -7,8 +7,6 @@ const schema = new mongoose.Schema({
   },
   Title: {
     type: String,
-    required: [true, "Enter Title"],
-    unique: [true, "Title Name already Exists"],
   },
   Price: {
     type: Number,
@@ -31,5 +29,5 @@ const schema = new mongoose.Schema({
     default: new Date(),
   },
 });
-
+schema.index({ Title: "text", Categories: "text" });
 module.exports = mongoose.model("products", schema);

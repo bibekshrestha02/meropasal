@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import SubTitle from "./../../Assets/Title";
 import axios from "./../../Axios";
 export default function AddProduct() {
-  const [imagePath, setImagePath] = useState();
+  const [imagePath, setImagePath] = useState("");
   const [Title, setTitle] = useState("");
   const [Price, setPrice] = useState("");
   const [Rating, setRating] = useState("");
   const [ItmesLeft, setItmesLeft] = useState("");
   const [Categories, setCategories] = useState("Laptop");
+  const [fileData, setFileData] = useState();
   const TitleHandler = (e) => {
     setTitle(e.target.value);
   };
@@ -24,27 +25,32 @@ export default function AddProduct() {
     setCategories(e.target.value);
   };
   const onUploadFile = (e) => {
-    setImagePath(e.target.files[0]);
-    console.log(e.target.files);
+    const fileData = e.target.files[0];
+    setFileData(fileData);
   };
   const onUpload = (e) => {
+    if (!fileData) {
+      return alert("Please select Image");
+    }
     const formData = new FormData();
-    formData.append("myImage", imagePath);
+    formData.append("myImage", fileData);
     const config = {
       headers: {
         "content-type": "multipart/form-data",
       },
     };
-    axios
-      .post("/api/upload", formData, config)
-      .then((response) => {
-        alert("The file is successfully uploaded");
-      })
-      .catch((error) => {});
+
+    axios.post("/api/Product/upload", formData, config).then((res) => {
+      const fileName = res.data.fileName;
+      setImagePath(`/images/${fileName}`);
+    });
   };
   const onSubmit = () => {
     if (!Title || !Price || !ItmesLeft || !Categories) {
       return alert("Fill Up the form");
+    }
+    if (!imagePath) {
+      return alert("Please select an Image");
     }
     const data = {
       Title,
@@ -52,43 +58,37 @@ export default function AddProduct() {
       ItemsLeft: ItmesLeft * 1,
       Categories,
       Rating: Rating * 1,
-      Photo: "/images/Electronics/laptops/asus.png",
+      Photo: imagePath,
     };
-    axios
-      .post("/api/Products", data)
-      .then((res) => {
-        console.log(res.data);
-        if (res.data.status === "Success") {
-          alert("Product Add");
-          setPrice("");
-          setRating("");
-          setTitle("");
-          setItmesLeft("");
-        } else alert("Title already Exist");
-      })
-      .catch((err) => {
-        console.log(err, "df");
-      });
-    console.log(data);
+    axios.post("/api/Products", data).then((res) => {
+      if (res.data.status === "Success") {
+        alert("Product Add");
+        setPrice("");
+        setRating("");
+        setTitle("");
+        setItmesLeft("");
+        setImagePath("");
+      } else alert("Title already Exist");
+    });
   };
   return (
     <>
       <SubTitle Title='Add Itmes' />
-      <div className='row mt-3 pt-3'>
+      <div className='row mt-3 pt-3 mx-auto container'>
         <div className='col-lg-4'>
           <div className='text-center'>
             <img
-              src='./images/Electronics/laptops/asus.png'
+              src={!imagePath ? "/images/uploadImg.png" : imagePath}
               className='rounded'
               alt='...'
               width='200px'
               style={{ backgroundColor: "gray", padding: "9px" }}
             />
-            <div className='row mt-2'>
-              <div className='col-lg-6'>
+            <div className='row mt-3'>
+              <div className='col-lg-6 col-sm-12'>
                 <input type='file' onChange={onUploadFile} />
               </div>
-              <div className='col-lg-6'>
+              <div className='col-lg-6 col-sm-12'>
                 <input type='button' onClick={onUpload} value='Upload' />
               </div>
             </div>
@@ -146,9 +146,11 @@ export default function AddProduct() {
             </div>
           </div>
           <br />
-          <button className='btn btn-block btn-danger' onClick={onSubmit}>
-            Submit
-          </button>
+          <div className='text-right'>
+            <button className='btn btn-danger' onClick={onSubmit}>
+              Submit
+            </button>
+          </div>
         </div>
       </div>
     </>

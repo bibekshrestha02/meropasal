@@ -8,15 +8,10 @@ export default function Laptop() {
   const [Laptop, setLaptop] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    Axios.get("/api/laptops")
-      .then((e) => {
-        setLaptop(e.data.data);
-        setLoading(false);
-        // console.log(loading);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    Axios.get("/api/laptops").then((e) => {
+      setLaptop(e.data.data);
+      setLoading(false);
+    });
   }, []);
   let loader = <Spinner />;
   if (!loading) {

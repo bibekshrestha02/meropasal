@@ -1,14 +1,14 @@
 import React from "react";
-import "../../navCss/style.css";
+import style from "../../navCss/style.module.scss";
 export default function Toogle(props) {
   return (
-    <div className='Toogle'>
-      <div className='Menu' onClick={props.Open}>
+    <div className={`${style.Toogle}`}>
+      <div className={`${style.Menu}`} onClick={props.Open}>
         <div></div>
         <div></div>
         <div></div>
       </div>
-      <div className='Categories'>
+      <div className={`${style.Categories}`}>
         <span>Categories</span>
       </div>
     </div>

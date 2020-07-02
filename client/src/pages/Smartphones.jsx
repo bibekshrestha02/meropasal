@@ -8,15 +8,10 @@ export default function Smartphones() {
   const [Mobile, setMobile] = useState([]);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
-    Axios.get("/api/mobiles")
-      .then((e) => {
-        setMobile(e.data.data);
-        setLoading(false);
-        // console.log(loading);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    Axios.get("/api/mobiles").then((e) => {
+      setMobile(e.data.data);
+      setLoading(false);
+    });
   }, []);
   let loader = <Spinner />;
   if (!loading) {

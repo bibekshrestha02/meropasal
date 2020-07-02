@@ -1,12 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./dropdown.css";
 import Auth from "../../../../classes/Auth";
 export default function Dropdown(props) {
   const [show, setShow] = useState(false);
+  const [isAdmin, setAdmin] = useState();
+  useEffect(() => {
+    new Auth().isAuthenticate() && new Auth().isAdmin()
+      ? setAdmin(true)
+      : setAdmin(false);
+  }, []);
   let Tags = "User";
 
-  if (new Auth().isAdmin()) {
+  if (isAdmin) {
     Tags = "Admin";
   }
   const classHandler = () => {
@@ -30,12 +36,12 @@ export default function Dropdown(props) {
         }
         role='menu'
         aria-labelledby='menu1'>
-        <li className='dropdown-item'>
-          <Link to={"/customer/account"}>My Account</Link>
+        <li>
+          <Link to={"/customer/account"} onClick={classHandler}>
+            My Account
+          </Link>
         </li>
-        <li className='dropdown-item' onClick={props.logOut}>
-          LogOut
-        </li>
+        <li onClick={props.logOut}>LogOut</li>
       </ul>
     </div>
   );

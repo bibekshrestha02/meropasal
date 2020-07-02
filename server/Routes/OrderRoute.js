@@ -1,25 +1,15 @@
 const express = require("express");
-
-const router = express.Router();
+const { varification, checkRole } = require("./../Controller/AuthController");
+const { carts, deleteCarts } = require("./../Controller/CartsController");
 const {
-  getUserById,
-  PushOrderInPurchedList,
-  payment,
-} = require("./../Controller/userController");
-const { varification } = require("./../Controller/AuthController");
-const { updateStock } = require("./../Controller/ProductController");
-const { createOrder } = require("./../Controller/OrderController");
-// params
-router.param("userId", getUserById);
-// for payment
-router.post("/payment", payment);
-// for creating order
-router.post(
-  "/create/:userId",
-  varification,
-  PushOrderInPurchedList,
-  updateStock,
-  createOrder
-);
+  createOrder,
+  getOrder,
+  deleteOrder,
+} = require("./../Controller/OrderController");
+const Router = express.Router();
 
-module.exports = router;
+Router.route("/")
+  .post(varification, carts, createOrder, deleteCarts)
+  .get(varification, checkRole("admin"), getOrder);
+Router.route("/:id").delete(varification, checkRole("admin"), deleteOrder);
+module.exports = Router;

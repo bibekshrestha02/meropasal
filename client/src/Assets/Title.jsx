@@ -1,8 +1,8 @@
 import React from "react";
-import "./css/style.css";
+import style from "./css/style.module.scss";
 export default function Title(props) {
   return (
-    <div className='Title'>
+    <div className={`${style.Title}`}>
       <span>{props.Title}</span>
       <hr />
     </div>

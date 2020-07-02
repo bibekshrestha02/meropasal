@@ -49,7 +49,7 @@
   },
   {
     "Categories": "Laptop",
-    "Title": "Dell ",
+    "Title": "Dell",
     "Price": 50000,
     "Rating": 3,
     "ItemsLeft": 4,
@@ -57,7 +57,7 @@
   },
   {
     "Categories": "Laptop",
-    "Title": "Samsung ",
+    "Title": "Samsung",
     "Price": 60000,
     "Rating": 4.5,
     "ItemsLeft": 4,
@@ -116,7 +116,7 @@
     "Title": "Aco 1556Es",
     "Price": 12000,
     "Rating": 2.1,
-    "ItemsLeft ": 4,
+    "ItemsLeft": 4,
     "Photo": "/images/Electronics/monitor/aco.png"
   },
   {
